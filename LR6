@@ -1,0 +1,9 @@
+Select a.ArtistID
+a.Name,
+count(ii.UnitePrice) as Amount_earned
+g.name from artists a join album at on a.ArtistID = at.ArtistID
+join tracks t on a.AlbumID = t.AlbumID
+join genres g on g.genreID = t.genreID
+join invoice_items ii on t.trackID = ii.trackID
+join invoices I on i.invoiceID = ii.invoiceID where g.name = ‘Rock’
+Order by Amount_earned Desc;
